@@ -10,30 +10,30 @@ UPPERCASE = list(string.ascii_uppercase)
 
 
 def generate_password():
-    num = random.randint(8, 16)
-    num = 4
-    print(num)
 
-    password = ''
-    password = password.join(random.sample(SYMBOLS, num))
-    print(num)
-    password = password.join(random.sample(NUMBERS, num))
-    password = password.join(random.sample(LOWERCASE, num))
-    password = password.join(random.sample(UPPERCASE, num))
+    length = random.randint(8, 16)
 
-    print(password)
-    return password
+    print(length)
 
+    distribution = int(length/4)
 
+    symbolsx=random.sample(SYMBOLS, distribution)
+    numbersx=random.sample(NUMBERS, distribution)
+    lowercasex=random.sample(LOWERCASE, distribution)
+    uppercasex=random.sample(UPPERCASE, distribution)
 
-        
+    palabraclave = ''.join(symbolsx+numbersx+lowercasex+uppercasex)
+
+    print(palabraclave)
+    
+    return palabraclave
 
 
 def validate(password):
 
     if len(password) >= 8 and len(password) <= 16:
         has_lowercase_letters = False
-        has_numbers = False
+        has_lengthbers = False
         has_uppercase_letters = False
         has_symbols = False
 
@@ -49,7 +49,7 @@ def validate(password):
 
         for char in password:
             if char in string.digits:
-                has_numbers = True
+                has_lengthbers = True
                 break
 
         for char in password:
@@ -57,7 +57,7 @@ def validate(password):
                 has_symbols = True
                 break
 
-        if has_symbols and has_numbers and has_lowercase_letters and has_uppercase_letters:
+        if has_symbols and has_lengthbers and has_lowercase_letters and has_uppercase_letters:
             return True
     return False
 
