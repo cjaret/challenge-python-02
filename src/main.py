@@ -33,7 +33,7 @@ def validate(password):
 
     if len(password) >= 8 and len(password) <= 16:
         has_lowercase_letters = False
-        has_lengthbers = False
+        has_numbers = False
         has_uppercase_letters = False
         has_symbols = False
 
@@ -49,7 +49,7 @@ def validate(password):
 
         for char in password:
             if char in string.digits:
-                has_lengthbers = True
+                has_numbers = True
                 break
 
         for char in password:
@@ -57,7 +57,7 @@ def validate(password):
                 has_symbols = True
                 break
 
-        if has_symbols and has_lengthbers and has_lowercase_letters and has_uppercase_letters:
+        if has_symbols and has_numbers and has_lowercase_letters and has_uppercase_letters:
             return True
     return False
 
